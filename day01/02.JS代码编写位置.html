@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--将外部JS文件引入-->
+		<script type="text/javascript" src="js/script.js"></script>
+		<!--可以将js代码写到标签的script标签中
+		-->
+		<script type="text/javascript">
+			alert("这里的代码会立即执行。");
+		</script>
+	</head>
+	<body>
+		<!--可以将js代码编写到标签的onclick属性中
+			点击按钮才执行。
+		-->
+		<button onclick="alert('讨厌，你点我干嘛~~')">点我一下</button>
+		<!--
+        	可以将js代码写在超链接的href属性中
+        	点击链接执行代码
+        -->
+		<a href="javascript:alert('让你点你就点！')">你也点我一下</a>
+		
+		<a href="javascript:;">你也点我一下</a><!--超链接点完没反应-->
+	</body>
+</html>
