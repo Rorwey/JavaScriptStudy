@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04.强制类型转换2</title>
+		<script type="text/javascript">
+			/**
+			 * 转换为Boolean
+			 * 	使用Boolean()函数
+			 */
+			//数字→布尔值，除了`0`和`NaN`，其余都是`true`
+			var a = 123;
+			a = Boolean(a);
+			console.log(typeof a); //boolean
+			console.log(a); // true
+			a = 0;
+			console.log(typeof a); //boolean
+			console.log(a); // false
+			
+			a = "hello";
+			console.log(a); // true
+			a = "false";
+			console.log(a); // true
+			a = "   ";
+			console.log(a); // false
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

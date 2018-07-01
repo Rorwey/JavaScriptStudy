@@ -1,10 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title>01.数据类型</title>
+		<script type="text/javascript">
+			/**
+			 * String 字符串
+			 * 	- 需要用引号引起来
+			 * 	- 双引号，单引号都可以，但不能混用。
+			 * 	- 引号不能嵌套：双引号内不能放双引号，单引号不能放单引号。但可以在单引号内放双引号，反之亦可。
+			 * 	- 在字符串中输出特殊符号，用'\'进行转义。
+			 */
+			var str = "hello";
+			console.log(str);
+
+			var str = 'world';
+			//			var str = 'hello"; //错误
+
+			var str = '他说："今天天气真不错"';
+
+			var str = "他说：\"今天天气真不错\"";
+
+			/**
+			 * Number 数值类型
+			 * 	在JS中所有的数值都是Number类型，包括整数和浮点数。
+			 * 	JS中提供了可以显示的最大值。如果表示的数字超过了最大值，则会返回`Infinity`,这是Number类型的一个字面量。
+			 * 	对于非法的数学运算（例如对String做四则运算），会返回NaN，表示Not A Number。
+			 * 	JS中提供了数据的最小单位(最小的正小数)。
+			 */
+
+			var a = 123;
+
+			console.log(a);
+
+			//可以使用typeof来检查变量类型
+			var b = "123";
+			typeof a;
+			console.log(typeof a);
+
+			console.log(Number.MAX_VALUE);
+
+			a = "abc" * "123"
+			console.log(a);
+
+			console.log(Number.MIN_VALUE);
+			/**
+			 * JS中整数运算基本保证正确。浮点数运算可能结果不精确。
+			 */
+			var c = 123 + 456;
+			console.log(c);
+			var d = 0.1 + 0.2;
+			console.log(d);
+
+			/**
+			 * Boolean 类型
+			 * 	- 只有两个，true和false
+			 */
+
+			var bool = true;
+			console.log(bool);
+			var bool = false;
+			console.log(false);
+
+			/**
+			 * Null 空值 & Undefined 未定义
+			 * Null类型的值只有一个，表示为空的对象。
+			 * Undefined类型的值只有一个
+			 */
+
+			var a = null;
+			console.log(null); // null
+			console.log(typeof null); // object
+			
+			var f;
+			console.log(f); // undefined
+			console.log(typeof f); // undefined
+			
+		</script>
 	</head>
+
 	<body>
-		
+
 	</body>
+
 </html>
