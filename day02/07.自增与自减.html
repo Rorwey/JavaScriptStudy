@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>07.自增与自减</title>
+		<script type="text/javascript">
+			/*
+			 * 自增：
+			 * 	使变量在自身的基础上增加1
+			 * 	- 自增分为两种，后++与前++，均会立即使得原变量值自增1。
+			 * 	    但`a++`和`++a`的值不同。`a++`是原值，`++a`是自增后的值。
+			 */
+			var a = 1;
+			console.log(a++); //1
+			console.log(++a); //2
+
+			var d = 20;
+			d = d++;
+			console.log(d); //20
+			/*
+			 * var e = d++;
+			 * d = e;
+			 */
+
+			/*
+			 * 自减：
+			 * 	使变量在自身的基础上减少1
+			 * 	- 自减分为两种，后--与前--，均会立即使得原变量值自减1。
+			 * 	    但`a--`和`--a`的值不同。`a--`是原值，`--a`是自减后的值。
+			 */
+			var a = 1;
+			console.log(a--); //1
+			console.log(--a); //0
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

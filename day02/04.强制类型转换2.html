@@ -17,13 +17,22 @@
 			a = 0;
 			console.log(typeof a); //boolean
 			console.log(a); // false
-			
+
+			//字符串→布尔值，除了空串，其余都是`true`
 			a = "hello";
 			console.log(a); // true
 			a = "false";
 			console.log(a); // true
-			a = "   ";
+			a = " ";
 			console.log(a); // false
+
+			//null,undefined→布尔值，都是`false`
+			a = null;
+			console.log(a); // false
+			a = undefined;
+			console.log(a); // false
+			
+			//对象也会转换为`true`
 		</script>
 	</head>
 
