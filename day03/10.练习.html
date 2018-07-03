@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>10.练习</title>
+		<script type="text/javascript">
+			/**
+			 * 从键盘输入成绩
+			 * 当成绩为100，‘奖励一辆BMW’
+			 * 当成绩为[80-90]，‘奖励一台iPhone’
+			 * 当成绩为[60-80]，‘奖励一本参考书’
+			 * 其他时，什么也没有
+			 */
+
+			/*
+			 * 提示：
+			 * prompt()函数可以弹出一个带文本框的提示框。
+			 * 	用户可以在文本框中输入内容。
+			 * 	该函数需要一个字符串作为参数，会展示为提示语。
+			 */
+			var chenji = prompt("请输入成绩(0-100)");
+			if(chenji > 100 || chenji < 0 || isNaN(chenji))
+				alert("输入的值有错误！");
+			else {
+				if(chenji == 100)
+					alert("奖励一辆BMW");
+				else if(chenji > 80)
+					alert("奖励一台iPhone");
+				else if(chenji > 60)
+					alert("奖励一本参考书");
+				else
+					alert("什么都没有");
+			}
+			/**
+			 * 男大当婚，女大当嫁。当女方家长要嫁女儿，提出一定条件：高180cm以上，富1000万以上，帅500以上；
+			 * 	- 若三个条件同时满足，则：“我一定要嫁给他”；
+			 * 	- 如果三个条件有为真的情况，则“嫁吧，比上不足比下有余”；
+			 * 	- 如果三个条件都不满足，则“不嫁！”
+			 */
+			var high = prompt("请输入身高(cm)：");
+			var rich = prompt("请输入财富(万元)：");
+			var shuai = prompt("请输入帅气值:");
+			if(high > 180)
+				high = 1;
+			else
+				high = 0;
+			if(rich > 1000)
+				rich = 1;
+			else
+				rich = 0;
+			if(shuai > 50)
+				shuai = 1;
+			else
+				shuai = 0;
+			var result = high + rich + shuai;
+			if(result == 3)
+				alert("我一定要嫁给他");
+			else if(result > 0)
+				alert("嫁吧，比上不足比下有余");
+			else
+				alert("不嫁！");
+			/**
+			 * 编写程序，由键盘输入3个整数分别为num1，num2，num3，对他们进行排序，并且有小到大输出。
+			 */
+			var num1 = +prompt("请输入整数1："); //使用了隐式类型转换
+			var num2 = +prompt("请输入整数2：");
+			var num3 = +prompt("请输入整数3：");
+			if(num1 < num2 && num1 < num3) {
+				//num1最小
+				if(num2 < num3) {
+					a = num1;
+					b = num2;
+					c = num3;
+				} else {
+					a = num1;
+					b = num3;
+					c = num2;
+				}
+			} else if(num2 < num1 && num2 < num3) {
+				//num2最小
+				if(num1 < num3) {
+					a = num2;
+					b = num1;
+					c = num3;
+				} else {
+					a = num2;
+					b = num3;
+					c = num1;
+				}
+			} else if(num3 < num1 && num3 < num2) {
+				//num3最小
+				if(num1 < num2) {
+					a = num3;
+					b = num1;
+					c = num2;
+				} else {
+					a = num3;
+					b = num2;
+					c = num1;
+				}
+			}
+			alert('排序后：' + a + ',' + b + ',' + c)
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

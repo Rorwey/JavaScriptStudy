@@ -7,15 +7,15 @@
 		<script type="text/javascript">
 			/*
 			 * 只需要一个操作数.
-			 * 	`+`（正号）不会对数字产生任何影响
-			 * 	`-`（负号）对数字进行取反。
+			 * 	+（正号）不会对数字产生任何影响
+			 * 	-（负号）对数字进行取反。
 			 * 	对非Number类型，先转换为Number，在进行运算。
-			 * 	可以对其他数据类型使用`+`将其转换为Number。
+			 * 	可以对其他数据类型使用+将其转换为Number。
 			 */
 			var a = true;
 			a = -a;
 			console.log(a); //-1
-			var result = 1++"2" + 3
+			var result = 1+ +"2" + 3
 			console.log(result); //6
 		</script>
 	</head>
