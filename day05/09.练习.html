@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>09.练习</title>
+		<script type="text/javascript">
+			/**
+			 * 定义一个函数，判断一个数字是否是偶数，如果是返回true，否则返回false
+			 */
+
+			function isOushu(num) {
+				return num % 2 == 0;
+			}
+			console.log(isOushu(5));
+			/**
+			 * 定义一个函数，可以根据半径计算一个圆的面积，并返回计算结果。
+			 */
+			function Yuan(radio) {
+				var mianji = Math.PI * radio * radio;
+				return mianji;
+			}
+			console.log(Yuan(5));
+
+			/**
+			 * 定义一个函数，可以在控制台中输出一个人的信息。
+			 * 	包括name,age,gender,address
+			 */
+			function showPeople(ren) {
+				console.log("姓名："+ren.name+"，年龄："+ren.age+"，性别"+ren.gender+"，住址："+ren.address);
+			}
+			var ren = {
+				name: "张三",
+				age: 18,
+				gender: "男",
+				address: "北京市"
+			};
+			showPeople(ren);
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>
