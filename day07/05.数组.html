@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05.数组</title>
+		<script type="text/javascript">
+			/**
+			 *  数组（Array）
+			 * 	- 内建对象
+			 * 	- 使用数字作为索引操作元素
+			 */
+			//创建数组对象
+			var arr = new Array();
+
+			console.log(typeof arr); //object
+			/*
+			 * 向数组中添加元素
+			 * 语法：数组[索引] = 值
+			 */
+			arr[0] = 10;
+			arr[1] = 11;
+			console.log(arr[1]);
+			/**
+			 * 通过字面量创建数组
+			 *	语法：`var 数组名 = []`
+			 */
+			var arr2 = [];
+			/*
+			 * 通过字面量来创建数组，可以砸创建时就制定数组中的元素。
+			 */
+			var arr3 = [1, 2, 3, 4, 5, 6];
+			/*
+			 * 使用构造函数创建数组是，也可以添加元素，
+			 * 将要添加的元素作为构造函数的参数传递进去。
+			 */
+			var arr4 = new Array(1, 2, 3, 4, 5, 6);
+
+			//创建一个数组，其中只有一个元素10
+			arr5 = [10];
+			//创建一个长度为10的数组
+			arr6 = new Array(10);
+			
+			/*
+			 * 数组中的元素可以是任意数据类型，包括对象。
+			 */
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>
