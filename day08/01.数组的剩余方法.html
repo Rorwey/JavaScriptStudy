@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title>01.数组的剩余方法</title>
 		<script type="text/javascript">
-			
+			var arr1 = ["孙悟空", "猪八戒", "沙和尚"];
+			var arr2 = ["狮子精", "大象精", "大鹏鸟"];
+			var arr3 = ["二郎神", "太上老君", "玉皇大帝"];
+			/**
+			 * concat()
+			 * 	连接两个或多个数组，并将新数组返回。
+			 */
+			console.log(arr1.concat(arr2));
+			console.log(arr1.concat(arr2, arr3));
+			console.log(arr1.concat(arr2, arr3, "牛魔王", "铁扇公主"));
+			/**
+			 * join()
+			 * 	该方法可以将数组转化为一个字符串 
+			 *  可以指定一个字符串作为参数，这个字符串将会成为数组中元素的连接符。默认为`,`。
+			 * 	如果要什么都没有，可以传一个空串。
+			 */
+			console.log(arr1.join());
+			console.log(arr1.join("-"));
+			console.log(arr1.join(""));
+			/**
+			 * reverse()
+			 * 	反转数组
+			 * 	该方法会直接修改原数组
+			 */
+			arr1.reverse()
+			console.log(arr1);
+
+			var arr = ["b", "d", "c", "a", "e"];
+			/**
+			 * sort()
+			 * 	对数组中的元素进行排序
+			 * 	该方法会直接修改原数组，默认按照Unicode编码进行排序。
+			 */
+			arr.sort();
+			console.log(arr);
+			/*
+			 * 	对于纯数字数组使用该方法排序，也会按照Unicode编码进行排序，所以对数字进行排序可能会得到错误的结果。
+			 */
+			arr = [3, 4, 11, 7, 6]
+			console.log(arr.sort());
+			/*
+			 * 可以自己指定排序规则：通过在sort()中添加回调函数
+			 * 	- 回调函数中需要定义两个形参，浏览器将会分别使用数组中的元素作为实参去调用回调函数
+			 *	- 使用哪个元素调用不确定，但肯定的是在数组中，①参数一定在②参数前。
+			 * 	- 浏览器会根据回调函数的返回值来决定元素交换的顺序。
+			 * 		- 如果返回一个大于0的值，则元素交换位置。
+			 *		- 如果返回一个小于0的值，则元素不交换位置。
+			 * 		- 如果返回一个0，则认为两个元素相等。
+			 * 
+			 */
+			var result= arr.sort(function(a, b) {
+//				if(a > b) {
+//					return 1;
+//				} else if(a < b) {
+//					return -1;
+//				} else {
+//					return 0;
+//				}
+				//升序
+				return a-b;
+			})
+			console.log(result);
 		</script>
 	</head>
+
 	<body>
-		
+
 	</body>
+
 </html>
