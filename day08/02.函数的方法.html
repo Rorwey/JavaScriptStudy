@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02.函数的方法</title>
+		<script type="text/javascript">
+			function fun(a, b) {
+				//				alert("我是fun函数");
+				//				alert(this);
+				console.log("a=" + a);
+				console.log("b=" + b);
+			}
+			/**
+			 * call()和apply()方法
+			 * 	- 这两个方法都是函数对象的方法，需要通过函数对象来调用。
+			 * 	- 当对函数调用这两个方法时，都会调用函数执行
+			 * 	- 在调用这两个方法时，可以将一个对象指定为第一个参数。此时这个对象会成为函数执行时的this
+			 */
+			//			fun();
+			//			fun.call();
+			//			fun.apply();
+
+			var obj = {};
+			//			fun.call(obj);
+			//			fun.apply(obj);
+			/*
+			 * call()可以将实参在对象之后依次传递
+			 */
+			fun.call(obj, 2, 3);
+			/*
+			 * apply()方法需要将实参封装到数组中统一传递
+			 */
+			fun.apply(obj,[2,3]);
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>
