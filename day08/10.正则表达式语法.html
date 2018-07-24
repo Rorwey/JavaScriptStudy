@@ -69,7 +69,6 @@
 			reg = /\bchild\b/;
 			console.log(reg.test("hello child"));
 			console.log(reg.test("hello children"));
-<<<<<<< HEAD
 
 			var str = "       he   llo       ";
 			//去掉字符串中，单词外的空格			
@@ -77,7 +76,7 @@
 			console.log(str.replace(/^\s*/g, "")); //去掉开头的多个空格
 			console.log(str.replace(/\s*$/g, "")); //去掉结尾的多个空格
 			console.log(str.replace(/^\s*|\s*$/g, "")); //去掉开头或结尾的多个空格
-
+			
 			/*
 			 * 电子邮件正则规则
 			 *  格式：任意字母、数字、下划线，@，任意数字、数字，.，任意字母（2-5位）.，任意字母（2-5位）
@@ -86,20 +85,7 @@
 			var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/
 			var email = "abc@abc.com";
 			console.log(emailReg.test(email));
-=======
-			
-			var str="       he   llo       ";
-			//去掉字符串中，单词外的空格			
-			console.log(str.replace(/\s/g,""));//会去掉所有的空格
-			console.log(str.replace(/^\s*/g,""));//去掉开头的多个空格
-			console.log(str.replace(/\s*$/g,""));//去掉结尾的多个空格
-			console.log(str.replace(/^\s*|\s*$/g,""));//去掉开头或结尾的多个空格
-			
-			/*
-			 * 电子邮件正则规则
-			 */
-			
->>>>>>> 0dd37219cb8e82f0c619751c931f27ce5808067e
+
 		</script>
 	</head>
 
