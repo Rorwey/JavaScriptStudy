@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>10.正则表达式语法</title>
+		<script type="text/javascript">
+			/*
+			 * 创建一个正则表达式检查一个字符串是否含有aaa
+			 * 量词
+			 * 	- 可以设置一个内容出现的次数
+			 * 	- 语法：{n} 正好出现
+			 * 	- 只对前边一个内容起作用，需要对多个内容起作用，添加小括号。
+			 * 	- 语法：`{m,n}//出现m-n次`
+			 * 	- 语法：`+`，至少一个，相当于`{1,}`
+			 * 	- 语法：`*`，0个或多个，相当于`{0,}`
+			 * 	- 语法：`?`，0个或1个，相当于`{0,1}`
+			 */
+			//			var reg=/aaa/
+			var reg = /a{3}/;
+			console.log(reg.test("aaabc"));
+			reg = /(ab){2}/;
+			console.log(reg.test("aababc"));
+			reg = /ab{1,3}c/;
+			console.log(reg.test("aababc")); //对b，出现1-3次
+			console.log(reg.test("aabbabc"));
+			/*
+			 * 检查一个字符串是否以a开头
+			 * 	^ 表示开头
+			 * 	$ 表示结尾
+			 * 	如果在一个正则表达式中同时使用以上两个符号，则要求字符串必须完全符合。
+			 */
+			reg = /^a/;
+			console.log(reg.test("abc"));
+			/*
+			 * 检测合法手机号
+			 * 	- 规则
+			 * 		1. 以1开头
+			 * 		2.  3-9任意数字
+			 * 		3. 以后，任意数字9个
+			 */
+			var phoneStr = "13712345678";
+			reg = /^1[3-9][0-9]{9}$/;
+			console.log(reg.test(phoneStr));
+			/*
+			 * 转义
+			 * 检查一个字符串中是否含有.
+			 * 	- . 表示任意字符
+			 * 	- 注意使用构造函数时，参数是字符串，而`\`是转义字符。要使用`\\`来避免歧义。
+			 */
+			reg = /\./;
+			console.log(reg.test("phone. Str"));
+			/*
+			 * \w 任意字母、数字、_，[A-z0-9_]
+			 * \W 除了字母、数字、_，[^A-z0-9_]
+			 * \d 任意数字，[0-9]
+			 * \D 除了数字，[^0-9]
+			 * \s 空格
+			 * \S 除了空格
+			 * \b 单词边界
+			 * \B 除了单词边界
+			 */
+			/*
+			 * 创建一个正则表达式检查一个字符串中是否含有child
+			 */
+			reg = /child/;
+			console.log(reg.test("hello child"));
+			console.log(reg.test("hello children"));
+			reg = /\bchild\b/;
+			console.log(reg.test("hello child"));
+			console.log(reg.test("hello children"));
+
+			var str = "       he   llo       ";
+			//去掉字符串中，单词外的空格			
+			console.log(str.replace(/\s/g, "")); //会去掉所有的空格
+			console.log(str.replace(/^\s*/g, "")); //去掉开头的多个空格
+			console.log(str.replace(/\s*$/g, "")); //去掉结尾的多个空格
+			console.log(str.replace(/^\s*|\s*$/g, "")); //去掉开头或结尾的多个空格
+
+			/*
+			 * 电子邮件正则规则
+			 *  格式：任意字母、数字、下划线，@，任意数字、数字，.，任意字母（2-5位）.，任意字母（2-5位）
+			 *  正则：^ \w{3,} (\.\w+)* @ [A-z0-9]+ (\.[A-z]{2,5}){1,2} $
+			 */
+			var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/
+			var email = "abc@abc.com";
+			console.log(emailReg.test(email));
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>
