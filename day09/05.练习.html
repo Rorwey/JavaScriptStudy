@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05.练习</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#outer {
+				width: 320px;
+				margin: 50px auto;
+				padding: 10px;
+				background-color: greenyellow;
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				/*
+				 * 点击按钮切换图片
+				 */
+				var prev = document.getElementById("prev");
+				var next = document.getElementById("next");
+				/*
+				 * 切换图片既修改img标签的src属性
+				 */
+				var img = document.getElementsByTagName("img")[0];
+				//创建一个数组，用来保存图片路径
+				var imgArr = ["img/image1.jpg", "img/image2.jpg", "img/image3.jpg", "img/image4.jpg", "img/image5.jpg"]
+				//创建一个变量，包保存当前证咋显示的图片的索引
+				var index = 0;
+				//设置提示文字
+				var info = document.getElementById("info");
+				
+				prev.onclick = function() {
+					index_=Math.abs((index--) % imgArr.length)
+					img.src = imgArr[index_];
+					info.innerHTML = "当前图片"+(index_+1)+"/"+imgArr.length;
+				};
+				next.onclick = function() {
+					index_=Math.abs((index++) % imgArr.length)
+					img.src = imgArr[index_];
+					info.innerHTML = "当前图片"+(index_+1)+"/"+imgArr.length;
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<div id="outer">
+			<p id='info'>当前图片1/5</p>
+			<img src="img/image1.jpg" alt="壁纸1" />
+			<button id="prev">< 上一张</button>
+			<button id="next">下一张 ></buttom>
+		</div>
+	</body>
+
+</html>

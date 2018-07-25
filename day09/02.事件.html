@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02.事件</title>
+
+	</head>
+
+	<body>
+		<!--耦合，不推荐使用-->
+		<button id="btn" onclick="alert('讨厌，你点我干嘛！')">我是一个按钮</button>
+		<!--可以为按钮对应的时间绑定处理函数的形式来响应事件。 -->
+		<button id="btn2">我是一个按钮2</button>
+		<script type="text/javascript">
+			//获取按钮对象
+			var btn = document.getElementById("btn2");
+			//绑定一个单击事件
+			btn.onclick = function() {
+				//单机绑定函数
+				alert("你还点~~~");
+			};
+		</script>
+	</body>
+
+</html>
