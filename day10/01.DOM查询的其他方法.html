@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>01.DOM查询的其他方法</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//获取body标签
+				var body = document.getElementsByTagName("body")[0];
+				console.log(body);
+				/*
+				 * 在document中有属性body，保存了body的引用。
+				 */
+				body = document.body;
+				console.log(body);
+
+				/*
+				 * document.documentElement保存HTML根标签
+				 */
+				var html = document.documentElement;
+				console.log(html);
+
+				/*
+				 * document.all，页面中的所有元素
+				 */
+				var all = document.all;
+				console.log(all);
+				for(var i = 0; i < all.length; i++) {
+					console.log(all[i]);
+				}
+				//				等价
+				all = document.getElementsByTagName("*");
+				
+				/*
+				 * 根据元素的class属性值去查询一组元素节点对象。IE8+
+				 */
+				var box1=document.getElementsByClassName("box1");
+				
+				//获取页面中所有的div
+				var divs=document.getElementsByTagName("div");
+				console.log(divs.length);
+				//获取 class="box1" 中的div
+				/*
+				 * document.querySelector()，以一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象.
+				 * IE8支持
+				 * 仅返回第一个元素。
+				 */
+				var div=document.querySelector(".box1 div");
+				console.log(div.innerHTML);
+				
+				var box1s=document.querySelectorAll(".box1")
+				console.log(box1s.length);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+	</body>
+
+</html>
