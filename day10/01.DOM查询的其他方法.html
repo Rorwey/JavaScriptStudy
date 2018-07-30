@@ -31,14 +31,14 @@
 				}
 				//				等价
 				all = document.getElementsByTagName("*");
-				
+
 				/*
 				 * 根据元素的class属性值去查询一组元素节点对象。IE8+
 				 */
-				var box1=document.getElementsByClassName("box1");
-				
+				var box1 = document.getElementsByClassName("box1");
+
 				//获取页面中所有的div
-				var divs=document.getElementsByTagName("div");
+				var divs = document.getElementsByTagName("div");
 				console.log(divs.length);
 				//获取 class="box1" 中的div
 				/*
@@ -46,10 +46,10 @@
 				 * IE8支持
 				 * 仅返回第一个元素。
 				 */
-				var div=document.querySelector(".box1 div");
+				var div = document.querySelector(".box1 div");
 				console.log(div.innerHTML);
-				
-				var box1s=document.querySelectorAll(".box1")
+
+				var box1s = document.querySelectorAll(".box1")
 				console.log(box1s.length);
 			}
 		</script>
