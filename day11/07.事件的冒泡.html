@@ -16,23 +16,27 @@
 			}
 		</style>
 		<script type="text/javascript">
-			window.onload=function(){
+			window.onload = function() {
 				/*
 				 * 事件的冒泡（Bubble）
-				 * 	事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。
+				 * 	- 事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。
+				 * 	- 在开发中大部分情况的冒泡都是有用的，如果不希望事件冒泡可以通过事件对象来取消冒泡
 				 */
 				//为s1绑定一个单击响应事件
-				var s1=document.getElementById("s1");
-				s1.onclick=function(){
+				var s1 = document.getElementById("s1");
+				s1.onclick = function(event) {
+					event = event || window.event;
 					alert("我是span的单击响应函数");
+					//取消冒泡
+					event.cancelBubble = true;
 				};
 				//为box1绑定一个单击响应事件
-				var box1=document.getElementById("box1");
-				box1.onclick=function(){
+				var box1 = document.getElementById("box1");
+				box1.onclick = function() {
 					alert("我是div的单击响应函数");
 				};
 				//为body绑定一个单击响应事件
-				document.body.onclick=function(){
+				document.body.onclick = function() {
 					alert("我是body的单击响应函数");
 				};
 			};
