@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03.其他样式操作的相关属性</title>
+		<style type="text/css">
+			#box1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				padding: 10px;
+				border: 10px solid yellow;
+			}
+			
+			#box0 {
+				padding: 100px;
+				background-color: #BBAAEE;
+			}
+			
+			#box4 {
+				width: 200px;
+				height: 300px;
+				background-color: #9ACD32;
+				overflow: auto;
+			}
+			
+			#box5 {
+				width: 400px;
+				height: 600px;
+				background-color: #red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var box1 = document.getElementById("box1");
+				var btn01 = document.getElementById("btn01");
+				var box4 = document.getElementById("box4");
+				btn01.onclick = function() {
+					/*
+					 * clientWidth,clientHeight
+					 * 	- 获取元素的可见宽度和高度
+					 * 	- 返回的属性是不带px的数值，可以直接进行计算
+					 * 	- 会获取元素的宽度和高度，包括内容区和内边距
+					 * 	- 属性只读
+					 */
+					//alert(box1.clientHeight);
+					/*
+					 * offsetWidth,offsetHeight
+					 *  - 获取元素的可见宽度和高度
+					 * 	- 返回的属性是不带px的数值，可以直接进行计算
+					 * 	- 会获取元素整个的宽度和高度，包括内容区、内边距和外边框
+					 * 	- 属性只读 
+					 */
+					//alert(box1.offsetWidth);
+					/*
+					 * offsetParent
+					 * 	- 获取当前元素的定位父元素
+					 * 	- 获取距离当前元素最近的开启了定位的祖先元素
+					 */
+					//alert(box1.offsetParent)
+					/*
+					 * offsetLeft
+					 * 	- 当前元素相对于其定位元素的水平偏移量
+					 * offsetTop
+					 * 	- 当前元素相对于其定位元素的垂直偏移量
+					 */
+					//alert(box1.offsetTop)
+					/*
+					 * scrollWidth,scrollHeight
+					 * 	- 获取元素整个滚动区域的大小
+					 */
+					//alert(box4.clientHeight);
+					//alert(box4.scrollHeight);
+					/*
+					 * scrollLeft
+					 * 	- 获取水平滚动条滚动的距离
+					 * scrollTop
+					 * 	- 获取垂直滚动条滚动的距离
+					 */
+					//alert(box4.scrollLeft);
+					//alert(box4.clientHeight); //283，包含了滚动条的宽度
+					/*
+					 * 当满足scrollHeight-scrollTop==clientHeight时，说明垂直滚动条到底了
+					 * 同理，scrollWidth-scrollLeft==clientWidth时，说明水平滚动条到底了
+					 */
+					alert(box4.scrollHeight - box4.scrollTop);//滚动条完全在底部，283
+				};
+			};
+		</script>
+	</head>
+
+	<body>
+		<button id="btn01">点我一下</button>
+		<br /><br />
+		<div id="box4">
+			<div id="box5"></div>
+		</div>
+		<br /><br />
+		<div id="box0" style="position: relative;">
+			<div id="box1"></div>
+		</div>
+	</body>
+
+</html>
