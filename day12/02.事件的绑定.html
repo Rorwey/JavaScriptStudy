@@ -31,13 +31,25 @@
 				 * 	3. 是否在捕获阶段触发事件，需要一个布尔值，一般都传false
 				 * 
 				 * 可以为一个元素的相同事件同时绑定多个响应函数，这样当事件触发时，响应函数将会按照函数的绑定顺序执行。
+				 * 不支持IE8及以下浏览器
 				 */
-				btn01.addEventListener("click", function() {
+				/* btn01.addEventListener("click", function() {
 					alert(1);
 				}, false)
 				btn01.addEventListener("click", function() {
 					alert(2);
-				}, false)
+				}, false) */
+				/* 
+				 * attachEvent()
+				 * 	- 在IE8中可以使用~来绑定事件
+				 * 	- 参数：
+				 * 		1. 事件的名字字符串，需要on
+				 * 		2. 回调函数
+				 * 	- 也可以为同时为一个事件绑定多个处理函数，不同的是它是后绑定先执行，执行顺序和`addEventListener()`相反
+				 */
+				btn01.attachEvent("onclick",function(){
+					alert(1);
+				});
 			};
 		</script>
 	</head>
