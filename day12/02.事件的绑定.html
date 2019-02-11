@@ -76,7 +76,10 @@
 						 * callback.call(obj)
 						 */
 						//IE8及以下
-						obj.attachEvent("on" + eventStr, callback);
+						obj.attachEvent("on" + eventStr, function() {
+							//在匿名函数中调用回调函数
+							callback.call(obj);
+						});
 					}
 				}
 			};
