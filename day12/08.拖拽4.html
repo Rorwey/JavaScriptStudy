@@ -32,15 +32,30 @@
 
 				//获取box1
 				var box1 = document.getElementById("box1");
-				//为box1绑定一个鼠标按下事件
+				var box2 = document.getElementById("box2");
+				var img1 = document.getElementById("img1");
+				//开启box1的拖拽
+				drag(box1);
+				//开启box2的拖拽
+				drag(box2);
+
+				drag(img1);
+			}
+
+			/*
+			 * 提取一个专门用来设置拖拽的函数 
+			 * 参数：开启拖拽的元素
+			 */
+			function drag(obj) {
+				//为obj绑定一个鼠标按下事件
 				//当鼠标在被拖拽元素上按下时，开始拖拽
-				box1.onmousedown = function(event) {
+				obj.onmousedown = function(event) {
 					event = event || window.event;
 					//div的偏移量 鼠标.clientX - 元素.offsetLeft
 					//div的偏移量 鼠标.clientY - 元素.offsetTop
-					var ol = event.clientX - box1.offsetLeft;
-					var ot = event.clientY - box1.offsetTop;
-					
+					var ol = event.clientX - obj.offsetLeft;
+					var ot = event.clientY - obj.offsetTop;
+
 					//为document绑定onmousemove事件
 					document.onmousemove = function(event) {
 						event = event || window.event;
@@ -49,20 +64,20 @@
 						//获取鼠标的坐标
 						var left = event.clientX - ol;
 						var top = event.clientY - ot;
-						//修改box1的位置
-						box1.style.left = left + "px";
-						box1.style.top = top + "px";
+						//修改obj的位置
+						obj.style.left = left + "px";
+						obj.style.top = top + "px";
 					};
 
 					//为元素绑定一个鼠标松开事件
-					box1.onmouseup = function() {
+					obj.onmouseup = function() {
 						//当鼠标松开时，被拖拽元素固定在当前位置
 						//取消document的onmouseup事件
 						document.onmousemove = null;
 						//取消document的onmouseup事件
 						document.onmouseup = null;
 					};
-					
+
 					/*
 					 * 当我们拖拽一个网页中的文字内容时，浏览器会默认去搜索引擎搜索内容，这时会导致拖拽功能异常。
 					 * 如果不希望发生这个行为，则可以通过return false来取消行为。对IE8不起作用
@@ -76,5 +91,6 @@
 		我是一段文字
 		<div id="box1"></div>
 		<div id="box2"></div>
+		<img src="img/img1.jpg" id="img1" style="position: absolute;">
 	</body>
 </html>
