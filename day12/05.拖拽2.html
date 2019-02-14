@@ -62,6 +62,12 @@
 						//取消document的onmouseup事件
 						document.onmouseup = null;
 					};
+					
+					/*
+					 * 当我们拖拽一个网页中的文字内容时，浏览器会默认去搜索引擎搜索内容，这时会导致拖拽功能异常。
+					 * 如果不希望发生这个行为，则可以通过return false来取消行为。对IE8不起作用
+					 */
+					return false;
 				};
 			}
 		</script>
