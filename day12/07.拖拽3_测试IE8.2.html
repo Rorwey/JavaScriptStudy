@@ -33,6 +33,15 @@
 				//获取box1
 				var box1 = document.getElementById("box1");
 				//为box1绑定一个鼠标按下事件
+				/*
+				 * setCapture()
+				 * 	- 仅IE支持，但在火狐中调用不会报错。Chrome会报错。
+				 */
+				/* if (box1.setCapture) {
+					box1.setCapture();
+				} */
+				box1.setCapture && box1.setCapture();
+				
 				//当鼠标在被拖拽元素上按下时，开始拖拽
 				box1.onmousedown = function(event) {
 					//设置box1捕获所有鼠标按下的事件
@@ -42,7 +51,7 @@
 					//div的偏移量 鼠标.clientY - 元素.offsetTop
 					var ol = event.clientX - box1.offsetLeft;
 					var ot = event.clientY - box1.offsetTop;
-					
+
 					//为document绑定onmousemove事件
 					document.onmousemove = function(event) {
 						event = event || window.event;
@@ -63,8 +72,10 @@
 						document.onmousemove = null;
 						//取消document的onmouseup事件
 						document.onmouseup = null;
+						//当鼠标松开的时候,取消对事件的捕获
+						box1.releaseCapture &&box1.releaseCapture();
 					};
-					
+
 					/*
 					 * 当我们拖拽一个网页中的文字内容时，浏览器会默认去搜索引擎搜索内容，这时会导致拖拽功能异常。
 					 * 如果不希望发生这个行为，则可以通过return false来取消行为。对IE8不起作用
