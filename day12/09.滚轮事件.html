@@ -33,24 +33,20 @@
 				box1.onmousewheel=fun;	
 				bind(box1, "DOMMouseScroll", box1.onmousewheel);
 
-				// box1.onmousewheel=function(event){
-				// 	event=event||window.event
-				// 	//判断鼠标滚轮滚动方向
-				// 	//event.wheelDelta 可以获取鼠标滚动的方向
-				// 	//上正下负，大小和用户设置有关
-				// 	//在火狐中使用event.detail,上负下正
-				// 	
-				// 	//判断鼠标滚轮方向
-				// 	if(event.wheelDelta>0 || event.detail<0){
-				// 		alert("向上滚~~");
-				// 	}else{
-				// 		alert("向下滚~~");
-				// 	}
-				// 	
-				// 	
-				// };
-				//为火狐绑定事件
-				// 
+				box1.onmousewheel=function(event){
+					event=event||window.event
+					//判断鼠标滚轮滚动方向
+					//event.wheelDelta 可以获取鼠标滚动的方向
+					//上正下负，大小和用户设置有关
+					//在火狐中使用event.detail,上负下正
+					
+					//判断鼠标滚轮方向
+					if(event.wheelDelta>0 || event.detail<0){
+						alert("向上滚~~");
+					}else{
+						alert("向下滚~~");
+					}
+				};
 			};
 
 			function bind(obj, eventStr, callback) {
