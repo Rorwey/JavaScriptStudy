@@ -58,13 +58,23 @@
 						box1.style.height = box1.clientHeight + 10 + "px";
 					}
 					/*
+					 * 使用addEventListener()方法绑定响应函数，取消默认行为时不能使用 return false
+					 * 使用event来取消默认行为
+					 * 但IE8不支持event.preventDefault();直接调用会报错。
+					 * 
+					 */
+					event.preventDefault && event.preventDefault();
+					/*
 					 * 当滚轮滚动时，如果浏览器存在滚动条，滚动条会随之滚动
 					 * 这是浏览器的默认行为，如果不希望发证，可以取消。
+					 * （火狐无效）
 					 */
 					return false;
+
+
 				};
-				
-				
+
+
 			};
 
 			function bind(obj, eventStr, callback) {
