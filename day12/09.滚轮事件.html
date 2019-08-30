@@ -30,7 +30,7 @@
 				/* box1.onmousewheel=fun;				
 				bind(box1,"DOMMouseScroll",fun);*/
 				//等价==========
-				box1.onmousewheel=fun;	
+				box1.onmousewheel = fun;
 				bind(box1, "DOMMouseScroll", box1.onmousewheel);
 
 				/*box1.onmousewheel=function(event){
@@ -47,17 +47,24 @@
 						alert("向下滚~~");
 					}
 				};*/
-				
-				box1.onmousewheel=function(event){
-					event=event||window.event
-					if(event.wheelDelta>0 || event.detail<0){
+
+				box1.onmousewheel = function(event) {
+					event = event || window.event
+					if (event.wheelDelta > 0 || event.detail < 0) {
 						//向上滚,box1变短
-						box1.style.height=box1.clientHeight-10+"px";
-					}else{
+						box1.style.height = box1.clientHeight - 10 + "px";
+					} else {
 						//向下滚,box1变长
-						box1.style.height=box1.clientHeight+10+"px";
+						box1.style.height = box1.clientHeight + 10 + "px";
 					}
+					/*
+					 * 当滚轮滚动时，如果浏览器存在滚动条，滚动条会随之滚动
+					 * 这是浏览器的默认行为，如果不希望发证，可以取消。
+					 */
+					return false;
 				};
+				
+				
 			};
 
 			function bind(obj, eventStr, callback) {
@@ -78,7 +85,7 @@
 			}
 		</script>
 	</head>
-	<body>
+	<body style="height: 2000px;">
 		<div id="box1"></div>
 	</body>
 </html>
