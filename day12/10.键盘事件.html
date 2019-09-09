@@ -23,18 +23,31 @@
 				 * - 按键被松开 
 				 * 键盘事件一般会绑定给一些可以获取到焦点的对象或者是document
 				 */
-				document.onkeydown = function() {
-					event = event || window.event;
-					/**
-					 * 可以通过keyCode获取按键的Unicode编码,从而判断哪个按键被按下。
-					 */
-					if (event.keyCode === 89) {
-						console.log("按下了y");
-					}
-				};
-				document.onkeyup = function() {
-					console.log("按键被松开了");
-				};
+
+				// document.onkeydown = function() {
+				// 	event = event || window.event;
+				// 	/**
+				// 	 * 可以通过keyCode获取按键的Unicode编码,从而判断哪个按键被按下
+				// 	 * 事件对象还提供了altKey,ctrlKey,shiftKey
+				// 	 * 来判断alt,ctrl和shift是否被按下
+				// 	 */
+				// 	//判断y被按下
+				// 	// event.keyCode === 89
+				// 	//判断ctrl+y被按下
+				// 	//event.keyCode === 89&&event.ctrlKey
+				// 	if (event.keyCode === 89 && event.ctrlKey) {
+				// 		console.log("按下了ctrl+y");
+				// 	}
+				// };
+
+				// document.onkeyup = function() {
+				// 	console.log("按键被松开了");
+				// };
+
+				var input = document.getElementById("input");
+				input.onkeydown = function() {
+
+				}
 			}
 		</script>
 	</head>
