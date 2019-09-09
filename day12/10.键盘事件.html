@@ -17,16 +17,24 @@
 				 * 键盘事件
 				 *  onkeydowm
 				 * 	- 按键被按下
+				 *  - 对于`onkeydowm`，如果长按按键，会被一直触发
+				 * 	- 当被连续触发时，第一次和第二次之间间隔会长一点，之后会非常快。这种设计是为了防止误操作。
 				 *  onkeyup
 				 * - 按键被松开 
 				 * 键盘事件一般会绑定给一些可以获取到焦点的对象或者是document
 				 */
-				document.onkeydown=function(){
-					console.log("按键被按下了");
+				document.onkeydown = function() {
+					event = event || window.event;
+					/**
+					 * 可以通过keyCode获取按键的Unicode编码,从而判断哪个按键被按下。
+					 */
+					if (event.keyCode === 89) {
+						console.log("按下了y");
+					}
 				};
-				document.onkeyup=function(){
-					console.log("按键被松开了")
-				}
+				document.onkeyup = function() {
+					console.log("按键被松开了");
+				};
 			}
 		</script>
 	</head>
