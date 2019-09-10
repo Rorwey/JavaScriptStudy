@@ -46,7 +46,9 @@
 
 				var input = document.getElementById("input");
 				input.onkeydown = function() {
-
+					console.log("按键被按下了");
+					//在文本框中输入内容属于onkeydown的默认行为。如果取消,则输入的内容不会在文本框中出现
+					return false;
 				}
 			}
 		</script>
