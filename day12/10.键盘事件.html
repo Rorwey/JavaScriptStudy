@@ -46,9 +46,15 @@
 
 				var input = document.getElementById("input");
 				input.onkeydown = function() {
-					console.log("按键被按下了");
-					//在文本框中输入内容属于onkeydown的默认行为。如果取消,则输入的内容不会在文本框中出现
-					return false;
+					event = event || window.event;
+
+					// console.log(event.keyCode);
+					//数字是48-57,使文本框不能输入数字
+					if (event.keyCode >= 48 && event.keyCode <= 57) {
+						//在文本框中输入内容属于onkeydown的默认行为。如果取消,则输入的内容不会在文本框中出现
+						//可以利用这一特性限制文本框的输入内容
+						return false;
+					}
 				}
 			}
 		</script>
