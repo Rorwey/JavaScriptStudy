@@ -17,11 +17,20 @@
 					// alert(location)
 					// location="https://www.baidu.com";
 				}
-				/**
+				/*
 				 * assign()
 				 * 	- 用来跳转到其他页面，作用和直接修改location一样
+				 * reload()
+				 * 	- 重新加载当前页面，刷新
+				 * 	- reload(true),强制清空缓存刷新
 				 */
-				location.assign("https://www.baidu.com");
+				// location.assign("https://www.baidu.com");
+				/*
+				 * replace()
+				 * 	- 可以使用一个新的页面替换当前页面，调用完毕也会跳转页面
+				 * 	- 不会生成历史记录，不能使用回退按钮
+				 */
+				location.replace("https://www.baidu.com");
 			}
 		</script>
 	</head>
