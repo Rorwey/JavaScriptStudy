@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>03.Location</title>
+		<script type="text/javascript">
+			
+			/**
+			 * Location
+			 * 	- 直接打印即可获取到地址栏信息（当前页面的完整路径）
+			 * 	- 如果将location属性修改为一个完整路径，或相对路径，则我们的页面会自动跳转到该路径，并会生成相应的历史记录
+			 */
+			window.onload=function(){
+				//获取按钮
+				var btn=document.getElementById("btn");
+				btn.onclick=function(){
+					// alert(location)
+					// location="https://www.baidu.com";
+				}
+				/**
+				 * assign()
+				 * 	- 用来跳转到其他页面，作用和直接修改location一样
+				 */
+				location.assign("https://www.baidu.com");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>History</h1>
+		<button id="btn">点我一下</button>
+	</body>
+</html>
