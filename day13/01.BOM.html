@@ -36,7 +36,11 @@
 				alert("欢迎使用谷歌浏览器！");
 			}else if(/msie/i.test(ua)){
 				alert("欢迎使用IE浏览器！");
+				//在IE11中已经将微软和IE的相关标识都去除了，所以基本已经不能通过userAgent来识别浏览器是否是IE
 			}
+			/**
+			 * 如果通过userAgent不能判断浏览器类型，还可以通过一些浏览器中特有的对象来判断
+			 */
 		</script>
 	</head>
 	<body>
