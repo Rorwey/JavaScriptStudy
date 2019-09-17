@@ -9,23 +9,38 @@
 				 * 使图片可以自动切使
 				 * 
 				 */
-				var img1=document.getElementById("img1");
+				var img1 = document.getElementById("img1");
 				//创建数组保存图片路径
-				var imgArr=["img/image1.jpg","img/image2.jpg","img/image3.jpg","img/image4.jpg","img/image5.jpg"];
+				var imgArr = ["img/image1.jpg", "img/image2.jpg", "img/image3.jpg", "img/image4.jpg", "img/image5.jpg"];
 				//创建变量保存当前图片索引
-				var index=0;
-				//开启一个定时器来自动切换图片
-				setInterval(function(){
-					//使索引自增
-					indexa=Math.round((index++)%imgArr.length);
-					console.log(indexa);
-					//修改图片路径
-					img1.src=imgArr[indexa];
-				},1000)
+				var index = 0;
+
+				//定义一个变量保存定时器标识
+				var timer;
+				var btn01 = document.getElementById("btn01");
+				btn01.onclick = function() {
+					//开启一个定时器来自动切换图片
+					timer = setInterval(function() {
+						//使索引自增
+						index++;
+						index = index % imgArr.length;
+						console.log(index);
+						//修改图片路径
+						img1.src = imgArr[index];
+					}, 1000)
+				}
+
+				var btn02 = document.getElementById("btn02");
+				btn02.onclick = function() {
+
+				}
+
 			};
 		</script>
 	</head>
 	<body>
 		<img id="img1" src="img/image1.jpg" />
+		<button id="btn01">开始</button>
+		<button id="btn02">停止</button>
 	</body>
 </html>
