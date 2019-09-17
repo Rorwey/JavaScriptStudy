@@ -18,7 +18,15 @@
 				//定义一个变量保存定时器标识
 				var timer;
 				var btn01 = document.getElementById("btn01");
+				/**
+				 * 每点击一次按钮就会开启一个定时器。
+				 * 点击多次就会开启多个定时器，这就会导致图片的切换速度过快。
+				 * 并且只能关闭最后一次开启的定时器。
+				 */
+				
 				btn01.onclick = function() {
+					//在开启定时器之前,需要将上一个定时器关闭!
+					clearInterval(timer);
 					//开启一个定时器来自动切换图片
 					timer = setInterval(function() {
 						//使索引自增
@@ -32,7 +40,10 @@
 
 				var btn02 = document.getElementById("btn02");
 				btn02.onclick = function() {
-
+					/**
+					 * clearInterval()可以接收任意参数，如果参数是一个有效的定时器标识，则停止对应的定时器。如果参数不是一个有效标识，则不会有反应。
+					 */
+					clearInterval(timer);
 				}
 
 			};
