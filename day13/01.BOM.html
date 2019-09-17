@@ -25,22 +25,46 @@
 			 *			- 代表用户屏幕信息,通过该对象可以获取到用户的显示器的相关信息
 			 * 	- 这些BOM对象在浏览器中都是作为window对象的属性保存的。可以通过window对象来使用，也可以直接使用。
 			 */
-			
+
 			console.log(navigator.appName)
 			//判断浏览器类型
-			var ua=navigator.userAgent;
+			var ua = navigator.userAgent;
 			console.log(ua);
-			if(/firefox/i.test(ua)){
+			if (/firefox/i.test(ua)) {
 				alert("欢迎使用火狐浏览器！");
-			}else if(/chrome/i.test(ua)){
+			} else if (/chrome/i.test(ua)) {
 				alert("欢迎使用谷歌浏览器！");
-			}else if(/msie/i.test(ua)){
+			} else if (/msie/i.test(ua)) {
 				alert("欢迎使用IE浏览器！");
 				//在IE11中已经将微软和IE的相关标识都去除了，所以基本已经不能通过userAgent来识别浏览器是否是IE
 			}
-			/**
+			/*
 			 * 如果通过userAgent不能判断浏览器类型，还可以通过一些浏览器中特有的对象来判断
 			 */
+			// if (window.ActiveXObject) {
+			// 	alert("欢迎使用IE浏览器！")
+			// } else {
+			// 	alert("欢迎使用其他浏览器！")
+			// }
+			// 对IE不适用
+			if ("ActiveXObject" in window) {
+				alert("欢迎使用IE浏览器！")
+			} else {
+				alert("欢迎使用其他浏览器！")
+			}
+
+			if (/firefox/i.test(ua)) {
+				alert("欢迎使用火狐浏览器！");
+			} else if (/chrome/i.test(ua)) {
+				alert("欢迎使用谷歌浏览器！");
+			} else if (/msie/i.test(ua)) {
+				alert("欢迎使用IE浏览器！");
+				//在IE11中已经将微软和IE的相关标识都去除了，所以基本已经不能通过userAgent来识别浏览器是否是IE
+			} else if ("ActiveXObject" in window) {
+				alert("欢迎使用IE 11浏览器！")
+			} else {
+				alert("欢迎使用其他浏览器！")
+			}
 		</script>
 	</head>
 	<body>
