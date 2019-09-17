@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>04.定时调用</title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var count=document.getElementById("count");
+				//使count中的内容自动切换
+				/*
+				 * JS程序执行的速度是非常快的。如果希望一段程序，可以每间隔一段时间执行一次，可以使用定时调用。
+				 */
+				// for(i=0;i<100;i++){
+				// 	count.innerHTML=i;
+				// }
+				/*
+				 * setInterval()
+				 * 	- 定时调用
+				 * 	- 可以将一个函数每隔一段时间执行一次
+				 * 	- 参数：
+				 * 		1. 回调函数，该函数会每隔一段时间被调用一次
+				 * 		2. 每次调用间隔的时间，单位是毫秒
+				 * 	- 返回值：返回一个Number类型的数据
+				 */
+				var num=1;
+				setInterval(function(){
+					count.innerHTML=num++;
+				},500);
+				
+			};
+		</script>
+	</head>
+	<body>
+		<h1 id="count"></h1>
+	</body>
+</html>
