@@ -5,8 +5,33 @@
 		<title>02.History</title>
 		<script type="text/javascript">
 			
+			/**
+			 * length
+			 * 	- 属性，可以获取到当前访问的链接数量
+			 */
+			window.onload=function(){
+				//获取按钮
+				var btn=document.getElementById("btn");
+				btn.onclick=function(){
+					/**
+					 * back()
+					 * 	- 可以用来回退到上一页面，作用和浏览器回退按钮一样
+					 * forward()
+					 * 	- 可以跳转到下一页面，作用和浏览器的前进按钮一样
+					 */
+					// history.back();
+					// history.forward();
+					/**
+					 * 
+					 */
+				}
+			}
 		</script>
 	</head>
 	<body>
+		<h1>History</h1>
+		<button id="btn">点我一下</button>
+		<a href="02.History.test01.html">前往test01</a>
+		<a href="02.History.test02.html">前往test02</a>
 	</body>
 </html>
