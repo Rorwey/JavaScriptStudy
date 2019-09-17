@@ -3,6 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title>05.练习</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				/*
+				 * 使图片可以自动切使
+				 * 
+				 */
+				var img1=document.getElementById("img1");
+				//创建数组保存图片路径
+				var imgArr=["img/image1.jpg","img/image2.jpg","img/image3.jpg","img/image4.jpg","img/image5.jpg"];
+				//创建变量保存当前图片索引
+				var index=0;
+				//开启一个定时器来自动切换图片
+				setInterval(function(){
+					//使索引自增
+					indexa=Math.round((index++)%imgArr.length);
+					console.log(indexa);
+					//修改图片路径
+					img1.src=imgArr[indexa];
+				},1000)
+			};
+		</script>
 	</head>
 	<body>
 		<img id="img1" src="img/image1.jpg" />
