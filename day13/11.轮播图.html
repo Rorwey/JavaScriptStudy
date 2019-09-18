@@ -17,15 +17,18 @@
 				height: 480px;
 				margin: 50px auto;
 				/* 居中 */
-				background-color: greenyellow;
+				background-color: skyblue;
 				padding: 10px 0;
 				position: relative;
+				overflow: hidden;
 			}
 
 			/* 设置imgList */
 			#imgList {
 				list-style: none;
+				position: absolute;
 				/* width: 1700px; */
+				/* left: 0 px; */
 			}
 
 			#imgList li {
@@ -77,7 +80,6 @@
 				//获取页面中所有img标签
 				var imgArr = document.getElementsByTagName("img");
 				imgList.style.width = 340 * imgArr.length + "px";
-
 				/*
 				 * 设置导航按钮居中
 				 */
@@ -91,6 +93,29 @@
 				var index = 0;
 				//设置默认选中效果
 				allA[index].style.backgroundColor = "black";
+
+				// 点击超链接切换到指定的图片
+				//为所有超链接绑定单击响应函数
+				for (var i = 0; i < allA.length; i++) {
+					// 为每一个超链接贴标签
+					allA[i].num = i;
+					allA[i].onclick = function() {
+						//获取点击超链接的索引,并将其设置为index
+						index = this.num;
+						imgList.style.left = -340 * index + "px";
+						//修改正被选中的a
+						// allA[index].style.backgroundColor = "black";
+						setA();
+					};
+				};
+
+				//创建方法用来设置选中的a 
+				function setA() {
+					for (var i = 0; i < allA.length; i++) {
+						allA[i].style.backgroundColor = ""
+					}
+					allA[index].style.backgroundColor = "black";
+				}
 			};
 		</script>
 	</head>
