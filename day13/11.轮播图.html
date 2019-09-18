@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>11.轮播图</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				/*
+				 * 使图片可以自动切使
+				 * 
+				 */
+				var img1 = document.getElementById("img1");
+				//创建数组保存图片路径
+				var imgArr = ["img/image1.jpg", "img/image2.jpg", "img/image3.jpg", "img/image4.jpg", "img/image5.jpg"];
+				//创建变量保存当前图片索引
+				var index = 0;
+
+				//定义一个变量保存定时器标识
+				var timer;
+				var btn01 = document.getElementById("btn01");
+				/**
+				 * 每点击一次按钮就会开启一个定时器。
+				 * 点击多次就会开启多个定时器，这就会导致图片的切换速度过快。
+				 * 并且只能关闭最后一次开启的定时器。
+				 */
+				
+				btn01.onclick = function() {
+					//在开启定时器之前,需要将上一个定时器关闭!
+					clearInterval(timer);
+					//开启一个定时器来自动切换图片
+					timer = setInterval(function() {
+						//使索引自增
+						index++;
+						index = index % imgArr.length;
+						console.log(index);
+						//修改图片路径
+						img1.src = imgArr[index];
+					}, 1000)
+				}
+
+				var btn02 = document.getElementById("btn02");
+				btn02.onclick = function() {
+					/**
+					 * clearInterval()可以接收任意参数，如果参数是一个有效的定时器标识，则停止对应的定时器。如果参数不是一个有效标识，则不会有反应。
+					 */
+					clearInterval(timer);
+				}
+
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<ul id="imgList" style="width: 3120px;">
+				<li>
+					<img src="img/image1.jpg" alt="1st"/>
+				</li>
+				<li>
+					<img src="img/image2.jpg" alt="2nd"/>
+				</li>
+				<li>
+					<img src="img/image3.jpg" alt="3rd"/>
+				</li>
+				<li>
+					<img src="img/image4.jpg" alt="4th"/>
+				</li>
+				<li>
+					<img src="img/image5.jpg" alt="5th"/>
+				</li>
+			</ul>
+			<div id="nav" style="left:197.5px;"></div>
+		</div>
+	</body>
+</html>
