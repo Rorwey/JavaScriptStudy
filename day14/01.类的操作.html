@@ -32,7 +32,8 @@
 					 * 且可以通过这种方式使得表现与行为进一步分离
 					 */
 					// box.className += " b2";
-					addClass(box, "b2");
+					// addClass(box, "b2");
+					toogleClass(box, "b2");
 				};
 			};
 			//定义一个函数,向元素中添加指定的class属性值
@@ -50,7 +51,7 @@
 			//判断一个元素中是否含有指定的class值
 			/**
 			 * 参数:
-			 *  - obj 要判断lass属性的元素
+			 *  - obj 要判断class属性的元素
 			 * 	- cn 要判断的class值
 			 * 返回值：
 			 * 	- 有则true,否则false
@@ -60,6 +61,30 @@
 				var reg = new RegExp("\\b"+cn+"\\b");				
 				return reg.test(obj.className);
 			};
+			//删除一个元素中指定的class属性
+			/**
+			 * 参数:
+			 *  - obj 要判断class属性的元素
+			 * 	- cn 要判断的class值
+			 */
+			function removeClass(obj, cn) {
+				var reg = new RegExp("\\b"+cn+"\\b");				
+				obj.className=obj.className.replace(reg,"");
+			};
+			//切换一个类:如果元素中有该类则删除,否则添加.
+			/**
+			 * 参数:
+			 *  - obj 要切换class属性的元素
+			 * 	- cn 要切换的class值
+			 */
+			function toogleClass(obj,cn){
+				if(hasClass(obj,cn)){
+					removeClass(obj,cn);
+				}else{
+					addClass(obj,cn);
+				}
+			}
+			
 		</script>
 	</head>
 	<body>
