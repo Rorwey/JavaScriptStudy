@@ -101,6 +101,9 @@
 					// 为每一个超链接贴标签
 					allA[i].num = i;
 					allA[i].onclick = function() {
+						//点击时关闭自动切换的定时器
+						clearInterval(timer);
+
 						//获取点击超链接的索引,并将其设置为index
 						index = this.num;
 						// imgList.style.left = -340 * index + "px";
@@ -108,8 +111,8 @@
 						// allA[index].style.backgroundColor = "black";
 						setA();
 						//使用move函数切换图片
-						move(imgList, "left", -340 * index, 20, function() {
-
+						move(imgList, "left", -340 * index, 30, function() {
+							autoChange();
 						})
 					};
 				};
@@ -132,19 +135,19 @@
 					}
 					allA[index].style.backgroundColor = "black";
 				}
-
+				var timer
 				//创建一个函数,用来开启图片自动切换
 				function autoChange() {
-					setInterval(function() {
+					timer = setInterval(function() {
 						//使索引自增
 						index++;
 						index = index % imgArr.length;
 						//执行动画
-						move(imgList, "left", -340 * index, 20, function() {
+						move(imgList, "left", -340 * index, 30, function() {
 							//修改导航点
 							setA();
 						})
-					}, 3000);
+					}, 1000);
 				}
 			};
 		</script>
