@@ -24,7 +24,7 @@
 				 * Unicode码
 				 * ← 37 ↑ 38 → 39 ↓ 40
 				 */
-				switch (event.keyCode) {
+				switch (dir) {
 					case 37:
 						box1.style.left = box1.offsetLeft - speed + "px";
 						break;
@@ -47,8 +47,16 @@
 				//当用户按ctrl后,速度加快
 				if (event.ctrlKey) {
 					speed = 50;
+				} else {
+					speed = 10;
 				}
 
+				//使dir等于按键值
+				dir = event.keyCode;
+				//当按键松开,div不移动
+				document.onkeyup = function() {
+					dir = 0;
+				}
 			}
 		}
 	</script>
