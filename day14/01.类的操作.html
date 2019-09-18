@@ -9,8 +9,8 @@
 				height: 100px;
 				background-color: #FF0000;
 			}
+
 			.b2 {
-				width: 200px;
 				height: 200px;
 				background-color: #FFFF00;
 			}
@@ -27,8 +27,38 @@
 					/*box.style.width = "200px";
 					box.style.height = "200px";
 					box.style.backgroundColor="yellow";*/
-					box.className="b2";
+					/*
+					 * 可以通过修改元素的class的属性来间接修改样式。这样只要修改一次，即可同时修改多个样式，浏览器只要重新渲染页面一次。
+					 * 且可以通过这种方式使得表现与行为进一步分离
+					 */
+					// box.className += " b2";
+					addClass(box, "b2");
 				};
+			};
+			//定义一个函数,向元素中添加指定的class属性值
+			/**
+			 * 参数:
+			 *  - obj 要添加class属性的元素
+			 * 	- cn 要添加的class值
+			 */
+			function addClass(obj, cn) {
+				//先检查obj中是否含有cn
+				if(!hasClass(obj,cn)){
+					obj.className += " " + cn;
+				}
+			};
+			//判断一个元素中是否含有指定的class值
+			/**
+			 * 参数:
+			 *  - obj 要判断lass属性的元素
+			 * 	- cn 要判断的class值
+			 * 返回值：
+			 * 	- 有则true,否则false
+			 */
+			function hasClass(obj, cn) {
+				// var reg == "/\bb2\b/";
+				var reg = new RegExp("\\b"+cn+"\\b");				
+				return reg.test(obj.className);
 			};
 		</script>
 	</head>
