@@ -3,6 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<title>07.延时调用</title>
+		<script type="text/javascript">
+			var num=1;
+			/**
+			 * 延时调用
+			 * 	- 一个函数不马上执行，而是隔一段时间后再执行。且只会执行一次。
+			 * 	- 与定时调用类似，但定时调用会执行多次
+			 * 	- 延时调用和定时调用实际上是可以互相代替的
+			 */
+			var timer=setTimeout(function(){
+				console.log((num++))
+			},3000);
+			//关闭延时调用
+			clearTimeout(timer);
+		</script>
 	</head>
 	<body>
 	</body>
