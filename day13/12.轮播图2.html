@@ -108,11 +108,14 @@
 						// allA[index].style.backgroundColor = "black";
 						setA();
 						//使用move函数切换图片
-						move(imgList,"left",-340 * index,30,function(){
-							
+						move(imgList, "left", -340 * index, 20, function() {
+
 						})
 					};
 				};
+
+				//自动切换图片
+				autoChange();
 
 				//创建方法用来设置选中的a 
 				function setA() {
@@ -120,6 +123,20 @@
 						allA[i].style.backgroundColor = ""
 					}
 					allA[index].style.backgroundColor = "black";
+				}
+
+				//创建一个函数,用来开启图片自动切换
+				function autoChange() {
+					setInterval(function() {
+						//使索引自增
+						index++;
+						index = index % allA.length;
+						//执行动画
+						move(imgList, "left", -340 * index, 20, function() {
+							//修改导航点
+							setA();
+						})
+					}, 3000);
 				}
 			};
 		</script>
