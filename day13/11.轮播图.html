@@ -13,12 +13,13 @@
 			 * 设置outer样式
 			 */
 			#outer {
-				width: 320px;
-				height: 400px;
+				width: 340px;
+				height: 480px;
 				margin: 50px auto;
 				/* 居中 */
 				background-color: greenyellow;
 				padding: 10px 0;
+				position: relative;
 			}
 
 			/* 设置imgList */
@@ -29,7 +30,44 @@
 
 			#imgList li {
 				float: left;
-				margin: 10px;
+				margin: 0 10px 10px;
+			}
+
+			#imgList img {
+				/* display: block; */
+				width: 320px;
+				height: 480px;
+			}
+
+			#navDiv {
+				position: absolute;
+				/* 设置位置 */
+				bottom: 15px;
+				/*设置left值
+					outer宽度 340px
+					navDiv宽度 25 * 5 = 125px
+					340 - 125 = 215
+					215/2 = 107.5
+				*/
+				/* left: 108px; */
+			}
+
+			#navDiv a {
+				float: left;
+				width: 15px;
+				height: 15px;
+				background-color: red;
+				/* 设置左右外边距 */
+				margin: 0 5px;
+				/* 设置透明 */
+				opacity: 0.5;
+				/* 兼容IE8透明 */
+				filter: alpha(opacity=50);
+			}
+
+			/* 设置鼠标移入效果 */
+			#navDiv a:hover {
+				background-color: black;
 			}
 		</style>
 		<script type="text/javascript">
@@ -37,8 +75,22 @@
 				// 设置imgList的宽度
 				var imgList = document.getElementById("imgList");
 				//获取页面中所有img标签
-				var imgArr = document.getElementById("img");
-				imgList.style.width = 320 * imgArr.length + "px";
+				var imgArr = document.getElementsByTagName("img");
+				imgList.style.width = 340 * imgArr.length + "px";
+
+				/*
+				 * 设置导航按钮居中
+				 */
+				var navDiv = document.getElementById("navDiv");
+				var outer = document.getElementById("outer");
+				//设置navDiv的left值
+				navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+				console.log(navDiv.style.left);
+
+				var allA = document.getElementsByTagName("a");
+				var index = 0;
+				//设置默认选中效果
+				allA[index].style.backgroundColor = "black";
 			};
 		</script>
 	</head>
@@ -53,7 +105,14 @@
 				<li><img src="img/image4.jpg" alt="4th" /></li>
 				<li><img src="img/image5.jpg" alt="5th" /></li>
 			</ul>
-			<div id="nav" style="left:197.5px;"></div>
+			<!-- 导航按钮 -->
+			<div id="navDiv">
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+			</div>
 		</div>
 	</body>
 </html>
