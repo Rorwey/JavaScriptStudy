@@ -119,6 +119,14 @@
 
 				//创建方法用来设置选中的a 
 				function setA() {
+					//判断当前索引是否是最后一张图片
+					if (index >= imgArr.length - 1) {
+						//则将index设置为0
+						index = 0;
+						//此时显示最后一张图片,而其和第一张一样
+						imgList.style.left = 0;
+					}
+
 					for (var i = 0; i < allA.length; i++) {
 						allA[i].style.backgroundColor = ""
 					}
@@ -130,7 +138,7 @@
 					setInterval(function() {
 						//使索引自增
 						index++;
-						index = index % allA.length;
+						index = index % imgArr.length;
 						//执行动画
 						move(imgList, "left", -340 * index, 20, function() {
 							//修改导航点
@@ -151,6 +159,7 @@
 				<li><img src="img/image3.jpg" alt="3rd" /></li>
 				<li><img src="img/image4.jpg" alt="4th" /></li>
 				<li><img src="img/image5.jpg" alt="5th" /></li>
+				<li><img src="img/image1.jpg" alt="1st" /></li>
 			</ul>
 			<!-- 导航按钮 -->
 			<div id="navDiv">
