@@ -73,6 +73,7 @@
 				background-color: black;
 			}
 		</style>
+		<script src="js/util.js"></script>
 		<script type="text/javascript">
 			window.onload = function() {
 				// 设置imgList的宽度
@@ -102,10 +103,14 @@
 					allA[i].onclick = function() {
 						//获取点击超链接的索引,并将其设置为index
 						index = this.num;
-						imgList.style.left = -340 * index + "px";
+						// imgList.style.left = -340 * index + "px";
 						//修改正被选中的a
 						// allA[index].style.backgroundColor = "black";
 						setA();
+						//使用move函数切换图片
+						move(imgList,"left",-340 * index,30,function(){
+							
+						})
 					};
 				};
 
