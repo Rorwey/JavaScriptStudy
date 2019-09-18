@@ -13,13 +13,34 @@
 				width: 100px;
 				height: 100px;
 				background-color: red;
+				position: absolute;
+				left: 0;
 			}
 		</style>
+		<script src="js/util.js"></script>
 		<script type="text/javascript">
 			window.onload = function() {
 				var box1 = document.getElementById("box1");
 				var btn01 = document.getElementById("btn01");
-
+				var timer;
+				btn01.onclick = function() {
+					//关闭上一次定时器					
+					clearInterval(timer);
+					//开启定时器,用来执行动画效果
+					timer = setInterval(function() {
+							var oldValue = parseInt(getStyle(box1, "left"));
+							var newValue = oldValue + 10;
+							if (newValue > 800) {
+								newValue = 800;
+							}
+							box1.style.left = newValue + "px";
+							//当元素移动到800px,使其停止动画
+							if (newValue >= 800) {
+								clearInterval(timer);
+							}
+						},
+						30);
+				};
 			}
 		</script>
 	</head>
@@ -27,5 +48,6 @@
 		<button id="btn01">点击按钮后box1向右移动</button>
 		<br /><br />
 		<div id="box1"></div>
+		<div style="width: 0;height: 1000px;border-left:1px black solid;position: absolute;left:800px;top:0"></div>
 	</body>
 </html>
