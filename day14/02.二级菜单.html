@@ -38,19 +38,20 @@
 				for (var i = 0; i < menuSpan.length; i++) {
 					menuSpan[i].onclick = function() {
 						var parentDiv = this.parentNode;
-						
+						toggleMenu(parentDiv);
 						//打开菜单之后,要关闭之前打开的菜单
 						if (openDiv != parentDiv && !hasClass(openDiv, "collapsed")) {
 							//为了可以统一处理动画过渡效果,将addClass改为toogleClass效果
 							// addClass(openDiv, "collapsed");
 							//此处toogleClass不需要有移除功能
-							toogleClass(openDiv, "collapsed");
+							// toogleClass(openDiv, "collapsed");
+							toggleMenu(openDiv);
 						}
 						//修改openDiv为当前打开的菜单
 						openDiv = parentDiv;
 					};
 				}
-				// 切换元素显示状态
+				// 切换菜单折叠与显示状态				
 				function toggleMenu(obj){
 					//在切换类之前获取元素高度
 					var begin=obj.offsetHeight;
