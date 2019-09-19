@@ -47,3 +47,52 @@ function move(obj, attr, target, speed, callback) {
 		},
 		30);
 }
+
+//定义一个函数,向元素中添加指定的class属性值
+/**
+ * 参数:
+ *  - obj 要添加class属性的元素
+ * 	- cn 要添加的class值
+ */
+function addClass(obj, cn) {
+	//先检查obj中是否含有cn
+	if (!hasClass(obj, cn)) {
+		obj.className += " " + cn;
+	}
+};
+//判断一个元素中是否含有指定的class值
+/**
+ * 参数:
+ *  - obj 要判断class属性的元素
+ * 	- cn 要判断的class值
+ * 返回值：
+ * 	- 有则true,否则false
+ */
+function hasClass(obj, cn) {
+	// var reg == "/\bb2\b/";
+	var reg = new RegExp("\\b" + cn + "\\b");
+	return reg.test(obj.className);
+};
+//删除一个元素中指定的class属性
+/**
+ * 参数:
+ *  - obj 要判断class属性的元素
+ * 	- cn 要判断的class值
+ */
+function removeClass(obj, cn) {
+	var reg = new RegExp("\\b" + cn + "\\b");
+	obj.className = obj.className.replace(reg, "");
+};
+//切换一个类:如果元素中有该类则删除,否则添加.
+/**
+ * 参数:
+ *  - obj 要切换class属性的元素
+ * 	- cn 要切换的class值
+ */
+function toogleClass(obj, cn) {
+	if (hasClass(obj, cn)) {
+		removeClass(obj, cn);
+	} else {
+		addClass(obj, cn);
+	}
+}
