@@ -39,6 +39,10 @@
 			 * 		- 可以将一个JS对象转换为JSON字符串
 			 */
 			var str = JSON.stringify(obj3);
+			
+			/*
+			 * JSON这个对象在IE7及以下的浏览器中不支持，所以在这些浏览器中调用时会报错
+			 */
 		</script>
 	</head>
 	<body>
