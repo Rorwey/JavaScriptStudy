@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03.break和continue</title>
+		<script type="text/javascript">
+			/**
+			 * `break`关键字可以用来退出switch或循环语句。
+			 * 	- `break`会立即终止离它最近的那个循环。
+			 * 	- 可以为循环语句创建一个`label`，来标识循环。
+			 * 		break后跟label名，将会终止指定循环。
+			 * 	
+			 */
+
+			outer:
+				for(var i = 0; i < 5; i++) {
+					console.log("外层循环：" + i);
+					for(var j = 0; j < 5; j++) {
+						break outer;
+						console.log("内层循环：" + j);
+					}
+				}
+			/**
+			 * console.time("计时器名字")`：用来开始一个计时器，需要一个字符串做参数，作为字符串的标识。
+			 */
+			console.time("test");
+			console.timeEnd("tese");
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

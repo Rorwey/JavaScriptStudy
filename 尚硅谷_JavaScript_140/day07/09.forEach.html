@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>09.forEach</title>
+	<script type="text/javascript">
+		/*
+		 * 当不知道for循环的终止数目时，可以使用forEach遍历。
+		 * 这一方法只支持IE8以上的浏览器
+		 */
+		//创建一个数组
+		var arr = ["孙悟空", "猪八戒", "沙和尚", "唐僧", "白龙马"];
+		/*
+		 * 像这种由我们创建但不由我们调用的函数，称为回调函数。
+		 * forEach方法需要一个函数作为参数
+		 * 执行次数与数组长度相同，每次执行时，浏览器会将遍历到的元素以实参的形式传递。我们可以定义形参来读取这些内容。
+		 * 浏览器会在回调函数中传递三个参数。
+		 * 	1. 第一个参数是当前正在遍历的值。
+		 * 	2. 第二个参数是当前正在遍历的元素的索引。
+		 * 	3. 第三个参数是正在遍历的数组。
+		 */
+		arr.forEach(function(value,index,object){
+			console.log("value="+value);
+			console.log("index="+index);
+			console.log("object="+object);
+		});
+	</script>
+</head>
+
+<body>
+</body>
+
+</html>

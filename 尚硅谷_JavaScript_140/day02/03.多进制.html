@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03.多进制</title>
+		<script type="text/javascript">
+			var a = 123;
+			/*
+			 * 16进制：0x开头
+			 */
+			a = 0x10;
+			console.log(a); //16
+			a = 0xff;
+			console.log(a); //255
+			/*
+			 * 8进制：0开头
+			 */
+			a = 070;
+			console.log(a); //56
+			/*
+			 * 2进制：0b开头，不是所有浏览器都支持
+			 */
+			a = 0b10;
+			console.log(a); //2
+
+			//像类似"070"这样的字符串，有些浏览器会当做8进制解析，有些会作为十进制解析。
+			a = "070";
+			a = parseInt(a);
+			console.log(typeof a);
+			console.log(a); //70 or 56 ?	
+			//为了避免歧义，可以给paterInt()函数传递第二个参数，指定数字的进制。
+			a = parseInt(a, 10);
+			console.log(a); //70
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>
